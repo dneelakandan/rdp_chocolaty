@@ -1,0 +1,10 @@
+=== Issue with Configure OpenSSH on Windows Server
+
+. RDP to Windows machine with user Administrator and Password as provided in /etc/ansible/hosts
+. Open Powershell in your Windows Machine
+. Change directory to C:\Program Files\OpenSSH-Win64
+. Run .\uninstall-sshd.ps1 (to uninstall any previous installable)
+. Delete folder OpenSSH-Win64
+. Now on Ansible controller in your playbook, 
+  .. Add “force: yes” attribute to win_chocolatey module
+. Re-Run ansible-playbook to resolve the issue.
